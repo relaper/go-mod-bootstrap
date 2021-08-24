@@ -336,7 +336,7 @@ func (cp *Processor) createProviderClient(
 	providerConfig types.ServiceConfig) (configuration.Client, error) {
 
 	var err error
-	providerConfig.BasePath = filepath.Join(configStem, ConfigVersion, serviceKey)
+	providerConfig.BasePath = filepath.ToSlash(filepath.Join(configStem, ConfigVersion, serviceKey))
 	if getAccessToken != nil {
 		providerConfig.AccessToken, err = getAccessToken()
 		if err != nil {
